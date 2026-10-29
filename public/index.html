@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Pantalla completa al abrir desde la pantalla de inicio del iPad -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ventas">
+  <meta name="theme-color" content="#c2410c">
+  <meta name="format-detection" content="telephone=no">
+  <title>Punto de venta</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <!-- PIN ------------------------------------------------------------------ -->
+  <section id="pantalla-pin" class="pin" hidden>
+    <div class="pin-caja">
+      <img class="pin-logo" src="/icons/icon-192.png" alt="">
+      <h1 class="pin-titulo">Ingresa tu PIN</h1>
+      <div class="pin-puntos" id="pin-puntos" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <p class="pin-mensaje" id="pin-mensaje" role="alert"></p>
+      <div class="teclado" id="pin-teclado">
+        <button type="button" data-tecla="1">1</button>
+        <button type="button" data-tecla="2">2</button>
+        <button type="button" data-tecla="3">3</button>
+        <button type="button" data-tecla="4">4</button>
+        <button type="button" data-tecla="5">5</button>
+        <button type="button" data-tecla="6">6</button>
+        <button type="button" data-tecla="7">7</button>
+        <button type="button" data-tecla="8">8</button>
+        <button type="button" data-tecla="9">9</button>
+        <span></span>
+        <button type="button" data-tecla="0">0</button>
+        <button type="button" data-tecla="borrar" aria-label="Borrar">⌫</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP ------------------------------------------------------------------ -->
+  <div id="app" class="app" hidden>
+    <header class="barra">
+      <div class="barra-nombre" id="nombre-negocio">Punto de venta</div>
+      <nav class="pestanas">
+        <button type="button" class="pestana activa" data-pantalla="venta">Venta</button>
+        <button type="button" class="pestana" data-pantalla="historial">Historial</button>
+        <button type="button" class="pestana" data-pantalla="admin">Admin</button>
+      </nav>
+    </header>
+
+    <main class="contenido">
+      <!-- Venta -->
+      <section id="pantalla-venta" class="pantalla venta">
+        <div class="productos" id="productos"></div>
+        <aside class="pedido">
+          <div class="pedido-encabezado">
+            <h2>Pedido</h2>
+            <button type="button" class="btn btn-chico btn-fantasma" id="btn-vaciar">Vaciar</button>
+          </div>
+          <ul class="pedido-lineas" id="pedido-lineas"></ul>
+          <div class="pedido-pie">
+            <div class="pedido-total">
+              <span>Total</span>
+              <strong id="pedido-total">$0</strong>
+            </div>
+            <button type="button" class="btn btn-primario btn-enorme" id="btn-cobrar" disabled>Cobrar</button>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Historial -->
+      <section id="pantalla-historial" class="pantalla historial" hidden>
+        <div class="historial-barra">
+          <button type="button" class="btn" data-dias="-1" aria-label="Día anterior">◀</button>
+          <input type="date" id="historial-fecha" class="campo">
+          <button type="button" class="btn" data-dias="1" aria-label="Día siguiente">▶</button>
+          <button type="button" class="btn" id="historial-hoy">Hoy</button>
+          <button type="button" class="btn" id="historial-recargar">Actualizar</button>
+        </div>
+        <div class="resumen" id="historial-resumen"></div>
+        <ul class="historial-lista" id="historial-lista"></ul>
+      </section>
+
+      <!-- Administración -->
+      <section id="pantalla-admin" class="pantalla admin" hidden>
+        <div id="admin-contenido" class="admin-contenido"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal-raiz"></div>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
