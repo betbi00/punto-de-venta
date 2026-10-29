@@ -1,5 +1,5 @@
 // Mensajes para la cocina por WhatsApp (enlace wa.me).
-// Formato: "Pedido #12: 2 chalupas, 1 pambazo (sin cebolla), 1 ponche"
+// Formato: "Pedido #12: 2 chalupas, 1 pambazo (chorizo con papa), 1 ponche"
 import { esc } from './ui.js';
 
 let numeroCocina = '';

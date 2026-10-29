@@ -4,7 +4,7 @@ import { abrirCobro } from './cobro.js';
 
 const CLAVE_PEDIDO = 'pv_pedido';
 const COLORES = ['#c2410c', '#15803d', '#b45309', '#0e7490', '#be123c', '#6d28d9', '#1d4ed8', '#4d7c0f'];
-const NOTAS_RAPIDAS = ['sin cebolla', 'salsa verde', 'salsa roja', 'sin crema', 'sin queso', 'para llevar'];
+const NOTAS_RAPIDAS = ['con salsa', 'sin salsa', 'pollo', 'chorizo con papa'];
 
 let productos = null;   // null mientras carga
 let errorCarga = false;
@@ -117,7 +117,7 @@ function abrirNota(linea) {
   const { el, cerrar } = abrirModal(`
     <h2 class="modal-titulo">Nota: ${esc(linea.nombre)}</h2>
     <input class="campo" id="nota-texto" type="text" maxlength="100" autocomplete="off"
-           enterkeyhint="done" placeholder="Ej. sin cebolla" value="${esc(linea.nota)}">
+           enterkeyhint="done" placeholder="Ej. con salsa" value="${esc(linea.nota)}">
     <div class="chips">
       ${NOTAS_RAPIDAS.map((n) => `<button type="button" class="chip" data-chip="${esc(n)}">${esc(n)}</button>`).join('')}
     </div>
